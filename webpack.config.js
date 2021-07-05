@@ -1,4 +1,5 @@
 const path = require( 'path' );
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
 
@@ -10,7 +11,7 @@ module.exports = {
 
     // output bundles (location)
     output: {
-        path: path.resolve( __dirname, 'dist' ),
+        path: path.resolve( __dirname, 'dist/js' ),
         filename: 'main.js',
     },
 
@@ -36,15 +37,7 @@ module.exports = {
 
     // optimizations
     optimization: {
-        minimizer: [
-          new TerserPlugin({
-            // Use multi-process parallel running to improve the build speed
-            // Default number of concurrent runs: os.cpus().length - 1
-            parallel: true,
-            // Enable file caching
-            cache: true,
-            sourceMap: true,
-          }),
-        ],
-      },
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    },
 };

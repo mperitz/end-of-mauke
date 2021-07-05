@@ -4,19 +4,24 @@
   "description": "Fun web app to get people to stop calling me mauke.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/main.js",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "dev": "nodemon src/server/index.js",
+    "start": "node src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mikeperitz",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.9",
     "terser-webpack-plugin": "^5.1.4",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.5",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
