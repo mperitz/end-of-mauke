@@ -1,17 +1,15 @@
 const path = require( 'path' );
-const TerserPlugin = require('terser-webpack-plugin');
+
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 
-    // bundling mode
-    mode: 'production',
-
     // entry files
-    entry: './src/index.ts',
+    entry: './src/client/index.ts',
 
     // output bundles (location)
     output: {
-        path: path.resolve( __dirname, 'dist/js' ),
+        path: path.resolve( __dirname, 'dist'),
         filename: 'main.js',
     },
 
@@ -24,20 +22,29 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?/,
+                test: /\.ts/,
                 use: ['babel-loader', 'ts-loader'],
                 exclude: /node_modules/,
                 
-            }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                  {
+                    loader: "html-loader",
+                  }
+                ]
+            },
         ]
     },
 
+    plugins: [
+        new HtmlWebPackPlugin({
+          template: "./src/index.html",
+          filename: "./index.html"
+        })
+      ],
+
     // generate source map
     devtool: 'source-map',
-
-    // optimizations
-    optimization: {
-        minimize: true,
-        minimizer: [new TerserPlugin()],
-    },
 };

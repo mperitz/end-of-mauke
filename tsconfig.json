@@ -1,6 +1,6 @@
 {
     "include": ["src/client/**/*"],
-    "exclude": [],
+    "exclude": ["src/client/index.html"],
     "compilerOptions": {
         "module": "ES2015",
         "noImplicitAny": true,
