@@ -5,7 +5,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
 
     // entry files
-    entry: './src/client/index.ts',
+    entry: './src/client/app.ts',
 
     // output bundles (location)
     output: {
@@ -35,6 +35,14 @@ module.exports = {
                   }
                 ]
             },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  "style-loader",
+                  "css-loader",
+                  "sass-loader",
+                ],
+              },
         ]
     },
 

@@ -1,3 +1,5 @@
+import "./style.scss";
+
 console.log('hello');
 const app = document.getElementById('app');
 
