@@ -43,12 +43,12 @@
   font-family: 'Otomanopee One', sans-serif;
   font-weight: 1200;
   font-size: 14px;
-  animation: text 4s linear infinite;
+  animation: text 4.5s linear infinite;
 
   &.disabled {
     opacity: 0.4;
     cursor: default;
-    animation: text 40s linear infinite;
+    animation: text 45s linear infinite;
   }
 
   &:before {
