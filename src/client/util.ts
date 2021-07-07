@@ -1,25 +1,36 @@
 export const getContainer = () : HTMLElement => 
   document.querySelector('.container');
 
-export const createAndShowText = (text : string, typeDuration : number) : Promise<Element> =>
+export const createAndShowText = (
+  text : string
+  , typeDuration : number
+) : Promise<Element> =>
   new Promise((resolve : Function, reject : Function) => {
-    setTimeout(() => {
-      const container = getContainer();
-      const textElement = document.createElement('p');
-      textElement.classList.add('intro-text');
-      container.appendChild(textElement);
-      let i = 0;
-      const interval = setInterval(() => {
-        textElement.textContent += text[i++];
-        if (i === text.length) {
-          clearInterval(interval);
-          resolve(textElement);
-        }
-      }, typeDuration);
-    }, 300);
+    try {
+      setTimeout(() => {
+        const container = getContainer();
+        const textElement = document.createElement('p');
+        textElement.classList.add('intro-text');
+        container.appendChild(textElement);
+        let i = 0;
+        const interval = setInterval(() => {
+          textElement.textContent += text[i++];
+          if (i === text.length) {
+            clearInterval(interval);
+            resolve(textElement);
+          }
+        }, typeDuration);
+      }, 300);
+    } catch (err) {
+      reject(err);
+    }
   });
 
-export const showTextBlock = (textList : Array<string>, pauseDuration : number, typeDuration : number) : Promise<Array<Element>> =>
+export const showTextBlock = (
+  textList : Array<string>,
+  pauseDuration : number,
+  typeDuration : number
+) : Promise<Array<Element>> =>
   new Promise(async (resolve : Function, reject : Function) => {
     try {
       const elementsList = [];
