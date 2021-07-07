@@ -1,1 +1,6 @@
-@use 'intro/style';
+@use 'start/start_style';
+@use 'intro/intro_style';
+
+body {
+  margin: 0;
+}

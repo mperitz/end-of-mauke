@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,5 +18,11 @@ module.exports = {
   ],
   rules: {
     'no-confusing-arrow': 0,
+  },
+  'babel-module': {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      app: './app',
+    },
   },
 };

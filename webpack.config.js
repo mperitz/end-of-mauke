@@ -1,6 +1,6 @@
-const path = require( 'path' );
+const path = require('path');
 
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
@@ -9,13 +9,13 @@ module.exports = {
 
   // output bundles (location)
   output: {
-    path: path.resolve( __dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
   },
 
   // file resolutions
   resolve: {
-    extensions: [ '.ts', '.js' ],
+    extensions: ['.ts', '.js'],
   },
 
   // loaders
@@ -25,33 +25,33 @@ module.exports = {
         test: /\.ts/,
         use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/,
-          
+
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
-          }
-        ]
+            loader: 'html-loader',
+          },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
       },
-    ]
+    ],
   },
 
   plugins: [
-      new HtmlWebPackPlugin({
-        template: "./src/index.html",
-        filename: "./index.html"
-      })
-    ],
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+  ],
 
   // generate source map
   devtool: 'source-map',

@@ -1,5 +1,8 @@
+import start from './start/index';
+import intro from './intro/index';
+
 import './style.scss';
 
-const app = document.getElementById('app');
-
-app.innerHTML = '<h1>Hi!!</h1>';
+start()
+  .then(intro)
+  .catch(console.error);
