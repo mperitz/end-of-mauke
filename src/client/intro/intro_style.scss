@@ -1,7 +1,22 @@
-.start-container {
-  transition: opacity 1s;
-  
-  &.fade-out {
-    opacity: 0;
+.container {
+  &.fade-to-white {
+    animation: fade-to-white linear 1s forwards;
+  }
+
+  .prompt, .name, .start-btn {
+
+    &.fade-out {
+      animation: fade-out linear 1s forwards;
+    }
+  }
+
+  @keyframes fade-to-white {
+    0% { background: #111 }
+    100% { background: #fff }
+  }
+
+  @keyframes fade-out {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
   }
 }

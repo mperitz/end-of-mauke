@@ -3,20 +3,27 @@ import State from '../data_structures/state';
 export default function intro(state : State) : Promise<State> {
   return new Promise(async (resolve : Function, reject : Function) => {
     try {
-      await removeStartContainer();
+      await removeStartElements();
     } catch (err) {
       reject(err);
     }
   });
 }
 
-function removeStartContainer() : Promise<void> {
+function removeStartElements() : Promise<void> {
   return new Promise((resolve : Function, reject : Function) => {
     try {
-      const startContainer = document.querySelector('.start-container');
-      startContainer.classList.add('fade-out');
+      const container = document.querySelector('.container');
+      const prompt = document.querySelector('.prompt');
+      const nameInput = document.getElementById('name');
+      const startButton = document.getElementById('start');
+
+      container.classList.add('fade-to-white');
+      prompt.classList.add('fade-out');
+      nameInput.classList.add('fade-out');
+      startButton.classList.add('fade-out');
+
       setTimeout(() => {
-        startContainer.remove();
         resolve();
       }, 1000);
     } catch (err) {
