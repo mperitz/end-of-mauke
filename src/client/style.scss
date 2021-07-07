@@ -1,15 +1,1 @@
-@use 'start/start_style';
 @use 'intro/intro_style';
-
-body {
-  margin: 0;
-}
-
-.container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #111;
-  flex-direction: column;
-}

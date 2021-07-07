@@ -3,13 +3,6 @@
     animation: fade-to-white linear 1s forwards;
   }
 
-  .prompt, .name, .start-btn {
-
-    &.fade-out {
-      animation: fade-out linear 1s forwards;
-    }
-  }
-
   @keyframes fade-to-white {
     0% { background: #111 }
     100% { background: #fff }
@@ -19,4 +12,12 @@
     0% { opacity: 1 }
     100% { opacity: 0 }
   }
+}
+
+.intro-text {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.fade-out {
+  animation: fade-out linear 1s forwards;
 }

@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #111;
+  flex-direction: column;
+}
+
+.prompt {
+  color: white;
+  font-family: 'Otomanopee One', sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+.name {
+  color: white;
+  background: none;
+  border: none;
+  height: 75px;
+  width: 100vw;
+  text-align: center;
+  outline: none;
+  font-family: 'Otomanopee One', sans-serif;
+}
+
+.name:focus-visible {
+  outline: none;
+}
+
+.start-btn {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #111;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-family: 'Otomanopee One', sans-serif;
+  font-weight: 1200;
+  font-size: 14px;
+  animation: text 4.5s linear infinite;
+}
+
+.start-btn.disabled {
+  opacity: 0.4;
+  cursor: default;
+  animation: text 45s linear infinite;
+}
+
+.start-btn:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  border-radius: 10px;
+}
+
+.start-btn.disabled:before {
+  animation: glowing 200s linear infinite;
+}
+
+.start-btn:active {
+  color: #fff
+}
+
+.start-btn:active:after {
+  background: transparent;
+}
+
+.start-btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  background: #fff;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes text {
+  0% { color: #111; }
+  50% { color: #fff; }
+  100% { color: #111; }
+}
