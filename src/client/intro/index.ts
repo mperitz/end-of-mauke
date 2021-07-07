@@ -12,7 +12,8 @@ export default function intro(state : State) : Promise<State> {
       await removeStartElements();
       await pause(1000);
       
-      await displayTextBlock([
+      await displayTextBlock(
+        [
           'It was 1999.',
           'The world\'s six billionth person was born in Sarajevo.',
           'The New York Yankees had just swept the Atlanta Braves to win their 25th World Championship.',
