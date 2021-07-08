@@ -2,8 +2,8 @@ export const getContainer = () : HTMLElement =>
   document.querySelector('.container');
 
 export const createAndShowText = (
-  text : string
-  , typeDuration : number
+  text : string, 
+  typeDuration : number
 ) : Promise<Element> =>
   new Promise((resolve : Function, reject : Function) => {
     try {
