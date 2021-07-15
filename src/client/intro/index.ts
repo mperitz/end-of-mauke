@@ -29,6 +29,10 @@ export default function intro(state : State) : Promise<State> {
         150);
 
       await displayAndRemoveMerwin();
+      await displayTextBlock(
+        ['Life would never be the same.'],
+        500,
+        150);
       resolve(state);
     } catch (err) {
       reject(err);
