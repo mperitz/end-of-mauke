@@ -11,7 +11,7 @@ export default function start() : Promise<State> {
       nameInput.focus();
       nameInput.addEventListener('input', (event : InputEvent) => {
         const target = <HTMLInputElement>event.target;
-        if (!target.value) {
+        if (!target.value || target.value.trim().toLowerCase().match(/mauke?/)) {
           startButton.classList.add('disabled');
         } else {
           startButton.classList.remove('disabled');

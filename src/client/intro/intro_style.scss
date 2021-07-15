@@ -1,16 +1,12 @@
+$merwin-start-height: 75vh;
+$merwin-start-width: 75vw;
+
+$merwin-end-height: 60vh;
+$merwin-end-width: 35vw;
+
 .container {
   &.fade-to-white {
     animation: fade-to-white linear 1s forwards;
-  }
-
-  @keyframes fade-to-white {
-    0% { background: #111 }
-    100% { background: #fff }
-  }
-
-  @keyframes fade-out {
-    0% { opacity: 1 }
-    100% { opacity: 0 }
   }
 }
 
@@ -18,6 +14,69 @@
   font-family: 'Roboto Mono', monospace;
 }
 
+.merwin-wrapper {
+  height: $merwin-start-height;
+  width: $merwin-start-width;
+  overflow: hidden;
+}
+
+.merwin {
+  background: url('/src/images/young_me.jpeg') no-repeat center center;
+  height: 100%;
+  width: 100%;
+}
+
 .fade-out {
-  animation: fade-out linear 1s forwards;
+  animation: fade-out 1s linear forwards;
+}
+
+.fade-in {
+  animation: fade-in-scale-down 2s ease-out forwards;
+}
+
+.zoom-in {
+  animation: zoom-in 2s ease-out forwards;
+}
+
+.tighten {
+  animation: tighten 2s ease-out forwards;
+}
+
+.fade-out-merwin {
+  animation: fade-out 1s linear forwards;
+  height: $merwin-end-height;
+  width: $merwin-end-width;
+}
+
+@keyframes fade-to-white {
+  0% { background: #111 }
+  100% { background: #fff }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+@keyframes fade-in-scale-down {
+  0% {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom-in {
+  0% { transform: scale(1); }
+  100% { transform: scale(5) translate(4.2%, -1.5%); }
+}
+
+@keyframes tighten {
+  100% {
+    height: $merwin-end-height;
+    width: $merwin-end-width;
+  }
 }

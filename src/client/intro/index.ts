@@ -4,7 +4,9 @@ import {
   showTextBlock,
   removeTextBlock,
   pause,
-} from '../util';
+} from '../util/util';
+
+const belowImgText = 'For it was then that sweet Michael Peritz became Mauke.';
 
 export default function intro(state : State) : Promise<State> {
   return new Promise(async (resolve : Function, reject : Function) => {
@@ -25,6 +27,8 @@ export default function intro(state : State) : Promise<State> {
         ['And a legend came to be.'],
         500,
         150);
+
+      await displayAndRemoveMerwin();
       resolve(state);
     } catch (err) {
       reject(err);
@@ -62,3 +66,50 @@ const displayTextBlock = async (
   typeDuration : number
 ): Promise<void> =>
   await removeTextBlock(await showTextBlock(textList, pauseDuration, typeDuration));
+
+const displayMerwinMeadows = () : Promise<void> =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const imgWrapper = document.createElement('div');
+      imgWrapper.id = 'merwin';
+      imgWrapper.classList.add('merwin-wrapper');
+      const img = document.createElement('div');
+      imgWrapper.appendChild(img);
+      img.classList.add('merwin', 'fade-in');
+
+      getContainer().appendChild(imgWrapper);
+      await pause(2000);
+      imgWrapper.classList.add('tighten');
+      img.classList.add('zoom-in');
+      await pause(2000);
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+  });
+
+const removeMerwinMeadows = () : Promise<void> =>
+  new Promise(async (resolve : Function, reject : Function) => {
+    try {
+      await pause(belowImgText.length * 75 + 2300);
+      const imgWrapper = document.getElementById('merwin');
+      imgWrapper.classList.add('fade-out-merwin');
+      await pause(1000);
+      imgWrapper.remove();
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+  });
+
+const displayAndRemoveMerwin = async () : Promise<void> => {
+  await displayMerwinMeadows();
+  await Promise.all([
+    displayTextBlock(
+      [belowImgText],
+      500,
+      75
+    ),
+    removeMerwinMeadows(),
+  ]);
+}

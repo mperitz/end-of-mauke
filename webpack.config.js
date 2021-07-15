@@ -43,6 +43,14 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|svg|jpeg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          }
+        ]
+      },
     ],
   },
 
@@ -55,4 +63,6 @@ module.exports = {
 
   // generate source map
   devtool: 'source-map',
+
+  cache: false,
 };
