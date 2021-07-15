@@ -19,7 +19,7 @@ export default function start() : Promise<State> {
         }
       });
   
-      startButton.addEventListener('click', (event : MouseEvent) => {
+      startButton.addEventListener('click', (e : MouseEvent) => {
         localStorage.playerName = playerName;
         resolve(new State(playerName));
       });
